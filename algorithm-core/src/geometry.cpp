@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 double getOrientation(Point p1, Point p2, Point p3) {
-    return (p2.x-p1.x)*(p3.y-p1.y)-(p2.y-p1.y)*(p3.x-p1.x);
+    return (p2.y-p1.y)*(p3.x-p2.x)-(p2.x-p1.x)*(p3.y-p2.y);
 }
 double getSquaredDistance(Point p1, Point p2) {
     double dx=p1.x-p2.x;
