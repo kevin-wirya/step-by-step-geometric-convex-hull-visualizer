@@ -1,6 +1,6 @@
 #ifndef CONVEX_HULL_H
 #define CONVEX_HULL_H
-#include"point.h"
+#include "point.h"
 #include<string>
 #include<vector>
 using namespace std;
@@ -14,4 +14,9 @@ struct AlgorithmicStep {
     vector<Point> discarded;
     vector<Line> activeLines;
 };
+
+double getOrientation(Point p1, Point p2, Point p3);
+double getSquaredDistance(Point p1, Point p2);
+bool comparePolarAngle(Point anchor, Point p1, Point p2);
+
 #endif
