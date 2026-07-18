@@ -19,4 +19,8 @@ double getOrientation(Point p1, Point p2, Point p3);
 double getSquaredDistance(Point p1, Point p2);
 bool comparePolarAngle(Point anchor, Point p1, Point p2);
 
+vector<AlgorithmicStep> grahamScan(vector<Point> points);
+vector<AlgorithmicStep> jarvisMarch(vector<Point> points);
+vector<AlgorithmicStep> quickHull(vector<Point> points);
+
 #endif
