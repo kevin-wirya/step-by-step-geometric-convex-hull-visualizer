@@ -62,7 +62,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <option value="uniform">Uniform Distribution</option>
                         <option value="circular">Circular Distribution</option>
                         <option value="rectangular">Rectangular Distribution</option>
-                        <option value="gaussian">Gaussian (Normal)</option>
+                        <option value="gaussian">Normal Gaussian</option>
                         <option value="clusters">Clustered Gaussian</option>
                     </select>
                 </div>
