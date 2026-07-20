@@ -25,9 +25,9 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
             const h = rect.height;
             const scaleX = w / 800;
             const scaleY = h / 500;
-            ctx.fillStyle = "#0B0F19";
+            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(0, 0, w, h);
-            ctx.strokeStyle = "#1E293B";
+            ctx.strokeStyle = "#F1F5F9";
             ctx.lineWidth = 1;
             const gridSize = 40;
             for (let x = 0; x < w; x += gridSize) {
@@ -57,9 +57,7 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
                 ctx.lineTo(p2.x * scaleX, p2.y * scaleY);
                 ctx.strokeStyle = color;
                 ctx.lineWidth = width;
-                if (isDashed) ctx.setLineDash([6, 4]);
-                ctx.shadowColor = color;
-                ctx.shadowBlur = 8;
+                if (isDashed) ctx.setLineDash([5, 3]);
                 ctx.stroke();
                 ctx.restore();
             };
@@ -67,16 +65,16 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
                 const isCompleted = currentStep.active.length === 0 && currentStep.hull.length > 0;
                 if (isCompleted) {
                     currentStep.activeLines.forEach(line => {
-                        drawLine(line.p1, line.p2, "#06B6D4", 3);
+                        drawLine(line.p1, line.p2, "#2563EB", 2.5);
                     });
                 } else {
                     if (currentStep.hull.length > 1) {
                         for (let i = 0; i < currentStep.hull.length - 1; i++) {
-                            drawLine(currentStep.hull[i], currentStep.hull[i+1], "#06B6D4", 3);
+                            drawLine(currentStep.hull[i], currentStep.hull[i+1], "#2563EB", 2.5);
                         }
                     }
                     currentStep.activeLines.forEach(line => {
-                        drawLine(line.p1, line.p2, "#F59E0B", 2, true);
+                        drawLine(line.p1, line.p2, "#EA580C", 1.5, true);
                     });
                 }
             }
@@ -84,33 +82,29 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
                 const isHull = hullPtsMap.get(p.id);
                 const isActive = activePtsMap.get(p.id);
                 const isDiscarded = discardedPtsMap.get(p.id);
-                let color = "#E2E8F0";
-                let radius = 6;
-                let glow = false;
+                let color = "#64748B";
+                let radius = 5;
                 if (isHull) {
-                    color = "#06B6D4";
-                    radius = 8;
-                    glow = true;
+                    color = "#2563EB";
+                    radius = 7;
                 } else if (isActive) {
-                    color = "#F59E0B";
-                    radius = 8 + 2 * Math.sin(Date.now() / 150);
-                    glow = true;
+                    color = "#D97706";
+                    radius = 7 + 1.5 * Math.sin(Date.now() / 150);
                 } else if (isDiscarded) {
-                    color = "#334155";
-                    radius = 5;
+                    color = "#CBD5E1";
+                    radius = 4;
                 }
                 ctx.save();
                 ctx.beginPath();
                 ctx.arc(p.x * scaleX, p.y * scaleY, radius, 0, 2 * Math.PI);
                 ctx.fillStyle = color;
-                if (glow) {
-                    ctx.shadowColor = color;
-                    ctx.shadowBlur = 12;
-                }
                 ctx.fill();
+                ctx.strokeStyle = "#FFFFFF";
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
                 ctx.restore();
-                ctx.fillStyle = "#64748B";
-                ctx.font = "10px sans-serif";
+                ctx.fillStyle = "#475569";
+                ctx.font = "bold 10px sans-serif";
                 ctx.fillText(`P${p.id}`, p.x * scaleX + 10, p.y * scaleY - 6);
             });
             animationId = requestAnimationFrame(render);
@@ -135,9 +129,9 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
         else addPoint(x, y);
     };
     return (
-        <div ref={containerRef} className="w-full h-full relative border border-slate-800 rounded-lg overflow-hidden bg-[#0B0F19]">
+        <div ref={containerRef} className="w-full h-full relative border border-slate-200 rounded-lg overflow-hidden bg-white">
             <canvas ref={canvasRef} onClick={handleCanvasClick} className="w-full h-full cursor-crosshair block" />
-            <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur border border-slate-800 px-3 py-1.5 rounded text-xs text-slate-400 pointer-events-none">
+            <div className="absolute top-4 left-4 bg-slate-50/90 border border-slate-200 px-3 py-1.5 rounded text-xs text-slate-500 pointer-events-none font-medium">
                 Click to add point • Click point to remove
             </div>
         </div>
