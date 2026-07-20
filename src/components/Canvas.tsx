@@ -64,17 +64,21 @@ export const Canvas: React.FC<CanvasProps> = ({ points, currentStep, addPoint, r
                 ctx.restore();
             };
             if (currentStep) {
-                if (currentStep.hull.length > 1) {
-                    for (let i = 0; i < currentStep.hull.length - 1; i++) {
-                        drawLine(currentStep.hull[i], currentStep.hull[i+1], "#06B6D4", 3);
+                const isCompleted = currentStep.active.length === 0 && currentStep.hull.length > 0;
+                if (isCompleted) {
+                    currentStep.activeLines.forEach(line => {
+                        drawLine(line.p1, line.p2, "#06B6D4", 3);
+                    });
+                } else {
+                    if (currentStep.hull.length > 1) {
+                        for (let i = 0; i < currentStep.hull.length - 1; i++) {
+                            drawLine(currentStep.hull[i], currentStep.hull[i+1], "#06B6D4", 3);
+                        }
                     }
-                    if (currentStep.description.toLowerCase().includes("completed")) {
-                        drawLine(currentStep.hull[currentStep.hull.length - 1], currentStep.hull[0], "#06B6D4", 3);
-                    }
+                    currentStep.activeLines.forEach(line => {
+                        drawLine(line.p1, line.p2, "#F59E0B", 2, true);
+                    });
                 }
-                currentStep.activeLines.forEach(line => {
-                    drawLine(line.p1, line.p2, "#A855F7", 2, true);
-                });
             }
             points.forEach(p => {
                 const isHull = hullPtsMap.get(p.id);
