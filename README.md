@@ -19,6 +19,7 @@ Berikut adalah checklist status pengerjaan fitur berdasarkan tabel penilaian res
 | | Edge Case Handling | 200 | `[x] Selesai` |
 | **Demonstrasi** | Demo Video | 500 | `[x] Selesai` |
 | **Total** | | **3800** | **100% Pengerjaan** |
+
 1. **Pilihan 3 Algoritma Convex Hull**:
    - **Graham Scan**
    - **Jarvis March / Gift Wrapping**
@@ -42,6 +43,15 @@ Berikut adalah checklist status pengerjaan fitur berdasarkan tabel penilaian res
    - Deduplikasi otomatis terhadap titik koordinat duplikat dengan log visual.
    - Penanganan titik kolinear (sejajar segaris) pada semua algoritma dengan membuang titik tengah dan mempertahankan titik ujung terjauh.
    - Banner notifikasi peringatan bila titik kurang dari 3.
+
+## 🎥 Video Demonstrasi
+
+Untuk penjelasan detail mengenai arsitektur program, visualisasi step-by-step, analisis benchmark, serta penanganan edge case, silakan tonton video demonstrasi berikut:
+
+[![Video Demonstrasi](https://img.youtube.com/vi/7zOZZFW3yb8/hqdefault.jpg)](https://youtu.be/7zOZZFW3yb8)
+
+Tautan YouTube: [https://youtu.be/7zOZZFW3yb8](https://youtu.be/7zOZZFW3yb8)
+
 ## 🛠️ Teknologi & Framework
 - **Core Algorithms**: C++20 standard library
 - **WebAssembly Compiler**: Emscripten (`emcc` / `bind.h`)
