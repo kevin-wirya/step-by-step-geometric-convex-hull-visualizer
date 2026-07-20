@@ -143,6 +143,7 @@ export const useVisualizer = () => {
         isBenchmarkOpen,
         selectedAlgorithm,
         isLoadingWasm,
+        wasmModule,
         setPlaybackSpeed,
         setIsBenchmarkOpen,
         setSelectedAlgorithm,
