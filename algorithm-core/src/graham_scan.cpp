@@ -41,10 +41,10 @@ vector<AlgorithmicStep> grahamScan(vector<Point> points) {
         return steps;
     }
 
-    // find anchor point
+    // find anchor point (bottom-leftmost: maximum Y, minimum X on screen)
     int anchor_idx=0;
     for(size_t i=1;i<points.size();i++) {
-        if(points[i].y<points[anchor_idx].y|| 
+        if(points[i].y>points[anchor_idx].y|| 
             (points[i].y==points[anchor_idx].y&&points[i].x<points[anchor_idx].x)) {
             anchor_idx=i;
         }

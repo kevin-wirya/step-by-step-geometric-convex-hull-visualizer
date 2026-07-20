@@ -42,8 +42,8 @@ vector<AlgorithmicStep> quickHull(vector<Point> points){
     }
     int min_idx=0,max_idx=0;
     for(size_t i=1;i<points.size();i++){
-        if(points[i].x<points[min_idx].x||(points[i].x==points[min_idx].x&&points[i].y<points[min_idx].y))min_idx=i;
-        if(points[i].x>points[max_idx].x||(points[i].x==points[max_idx].x&&points[i].y>points[max_idx].y))max_idx=i;
+        if(points[i].x<points[min_idx].x||(points[i].x==points[min_idx].x&&points[i].y>points[min_idx].y))min_idx=i;
+        if(points[i].x>points[max_idx].x||(points[i].x==points[max_idx].x&&points[i].y<points[max_idx].y))max_idx=i;
     }
     Point A=points[min_idx],B=points[max_idx];
     hull.push_back(A);
