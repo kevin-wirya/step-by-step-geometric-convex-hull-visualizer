@@ -6,29 +6,29 @@ vector<AlgorithmicStep> grahamScan(vector<Point> points) {
     vector<Point> discarded_points;
     auto recordStep = [&](const string& desc, const vector<Point>& current_hull, const vector<Point>& active_pts, const vector<Line>& active_lns) {
         AlgorithmicStep step;
-        step.description = desc;
-        step.hull = current_hull;
-        step.active = active_pts;
-        step.discarded = discarded_points;
-        step.activeLines = active_lns;
+        step.description=desc;
+        step.hull=current_hull;
+        step.active=active_pts;
+        step.discarded=discarded_points;
+        step.activeLines=active_lns;
         steps.push_back(step);
     };
     vector<Point> unique_points;
     for(const auto& p:points) {
-        bool is_duplicate = false;
-        for(const auto& up:unique_points) {
-            if(up.x == p.x && up.y == p.y) {
-                is_duplicate = true;
+        bool is_duplicate=false;
+        for(const auto& up:unique_points){
+            if(up.x==p.x&&up.y==p.y){
+                is_duplicate=true;
                 break;
             }
         }
-        if(!is_duplicate) {
+        if(!is_duplicate){
             unique_points.push_back(p);
         }
     }
-    if(unique_points.size() != points.size()) {
+    if(unique_points.size()!=points.size()) {
         AlgorithmicStep step;
-        step.description="Removed " + to_string(points.size() - unique_points.size()) + " duplicate point(s).";
+        step.description="Removed "+to_string(points.size()-unique_points.size())+ " duplicate point(s).";
         step.hull=unique_points;
         steps.push_back(step);
         points=unique_points;
@@ -93,8 +93,8 @@ vector<AlgorithmicStep> grahamScan(vector<Point> points) {
 
         stack.push_back(next_pt);
         vector<Line> current_lns;
-        for (size_t k = 0; k < stack.size() - 1; ++k) {
-            current_lns.push_back({ stack[k], stack[k+1] });
+        for(size_t k=0;k<stack.size()-1;k++){
+            current_lns.push_back({stack[k],stack[k+1]});
         }
         recordStep("Pushed P" + next_pt.id + " onto the hull stack.", stack, { next_pt }, current_lns);
     }
