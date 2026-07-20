@@ -20,9 +20,9 @@ Berikut adalah checklist status pengerjaan fitur berdasarkan tabel penilaian res
 | **Demonstrasi** | Demo Video | 500 | `[x] Selesai` |
 | **Total** | | **3800** | **100% Pengerjaan** |
 1. **Pilihan 3 Algoritma Convex Hull**:
-   - **Graham Scan** ($O(N \log N)$)
-   - **Jarvis March / Gift Wrapping** ($O(N \cdot H)$)
-   - **QuickHull** ($O(N \log N)$ rata-rata, $O(N^2)$ terburuk)
+   - **Graham Scan**
+   - **Jarvis March / Gift Wrapping**
+   - **QuickHull**
 2. **Visualisasi Interaktif Step-by-Step**:
    - Kontrol pemutaran visualisasi, _Play, Pause, Next Step, Previous Step, dan Reset_.
    - Slider kecepatan step interval (50ms hingga 2000ms).
