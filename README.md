@@ -1,6 +1,7 @@
 # 🛡️ The Great Wrap: Step-by-Step Geometric Convex Hull Visualizer
 Tugas Seleksi Asisten Laboratorium IRK 2026.
-Visualizer interaktif berbasis web untuk mengeksplorasi pembentukan Convex Hull secara step-by-step dengan performa tinggi menggunakan C++ WebAssembly core dan React sebagai frontend.
+Visualizer interaktif berbasis web untuk mengeksplorasi pembentukan Convex Hull secara step-by-step dengan performa tinggi menggunakan C++ WebAssembly core dan React sebagai basis frontend.
+![Visualizer Preview](public/assets/web-preview-1.png)
 ## 🚀 Fitur Utama & Checklist Penilaian
 Berikut adalah checklist status pengerjaan fitur berdasarkan tabel penilaian resmi pada `task.md`:
 | Tipe | Aspek | Nilai Maksimum | Status |
@@ -76,6 +77,8 @@ Convex Hull dari sekumpulan titik $S$ adalah poligon cembung terkecil yang melin
 - **Kompleksitas**:
   - **Waktu**: $O(N \log N)$ rata-rata karena pembagian wilayah yang seimbang. Kasus terburuk $O(N^2)$ jika pembagian wilayah tidak seimbang (titik melengkung bias).
   - **Ruang**: $O(N)$ untuk stack rekursi terdalam.
+## 📸 Screenshot Hasil Convex Hull
+![Benchmark Interface](public/assets/web-preview-2.png)
 ## 💻 Cara Menjalankan Program
 ### Prasyarat
 - Node.js (v18 ke atas) & npm
